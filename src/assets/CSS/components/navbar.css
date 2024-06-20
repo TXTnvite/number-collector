@@ -1,0 +1,19 @@
+.navbar-container {
+    background-color:var(--secondary);
+    color:var(--primary);
+    
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+.navbar-container section h1 {
+    font-weight: 700;
+}
+.navbar-container ul {
+    padding:1.2rem;
+    border-radius: 50px;
+    width: 50%;
+    border: solid var(--primary) 2px;
+}
+.navbar-container ul li {
+    /* margin:0 2rem; */
+}

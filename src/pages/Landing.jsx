@@ -1,12 +1,18 @@
 import { useState } from "react";
+import "../assets/CSS/pages/landing.css"
 
 const Landing = () => {
     return (
-        <>
-        <main>
+        <section className="landing-container">
+        <main className="d-f-around">
+            <section>
             <h1>Simplicity & Fun</h1>
-            <h3>EXPLINATION</h3>
+            <h3>CREATING SIMPLICITY ON YOUR PHONE</h3>
             <button>Contact Us</button>
+            </section>
+            <aside>
+                <img/>
+            </aside>
         </main>
         <aside>
             <article>
@@ -22,6 +28,6 @@ const Landing = () => {
                 <p>Empower businesses to achieve efficiency without compromise.</p>
             </article>
         </aside>
-        </>)
+        </section>)
 }
 export default Landing;

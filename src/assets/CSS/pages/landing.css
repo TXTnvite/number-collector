@@ -1,0 +1,23 @@
+.landing-container {
+    height: 100vh;
+}
+.landing-container main{
+    height: 50vh;
+    text-align: start;
+}
+.landing-container main aside{
+    height: 20em;
+    width:20em;
+    background-color: black;
+}
+.landing-container main h1{
+    font-size: 300%;
+    font-weight: 700;
+}
+.landing-container main h3{
+    margin: 2em 0;
+    font-weight: 500;
+}
+.landing-container main button{
+    padding: 2% 3%;
+}

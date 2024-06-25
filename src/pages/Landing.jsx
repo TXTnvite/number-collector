@@ -14,8 +14,8 @@ const Landing = () => {
                 <img/>
             </aside>
         </main>
-        <aside>
-            <article>
+        <aside className="d-f-even">
+            <article className="d-f-even-col">
                 <h5>Core to Cosmos</h5>
                 <p>Create eco-friendly solutions with a consience</p>
             </article>

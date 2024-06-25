@@ -1,9 +1,12 @@
 .landing-container {
     height: 100vh;
+    width: auto;
 }
 .landing-container main{
     height: 50vh;
+    /* flex-wrap: wrap; */
     text-align: start;
+    margin-bottom: 5cap;
 }
 .landing-container main aside{
     height: 20em;
@@ -21,3 +24,5 @@
 .landing-container main button{
     padding: 2% 3%;
 }
+/* .landing-container aside{
+} */

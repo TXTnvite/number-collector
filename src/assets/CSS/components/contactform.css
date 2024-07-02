@@ -1,10 +1,12 @@
 .contact-form-container{
-    margin:0 30%;
+    margin:5% 30%;
     padding: 10% 0;
     background-color: var(--highlight);
+    border-radius: 30px;
 }
 .contact-form-container h1 {
     font-size: 200%;
+    margin-bottom: 10%;
 }
 .contact-form-container input, .contact-form-container textarea {
     margin:10px;

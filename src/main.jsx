@@ -16,22 +16,26 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
+       {
         index: true,
-        element: <Landing />,
-      },
-      {
-        path: 'about',
-        element: <About />,
-      },
-      {
-        path: 'auth',
         element: <Authentication />,
       },
-      {
-        path: 'questions',
-        element: <Questions />,
-      },
+      // {
+      //   index: true,
+      //   element: <Landing />,
+      // },
+      // {
+      //   path: 'about',
+      //   element: <About />,
+      // },
+      // {
+      //   path: 'auth',
+      //   element: <Authentication />,
+      // },
+      // {
+      //   path: 'questions',
+      //   element: <Questions />,
+      // },
     ],
   },
 ]);

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../assets/CSS/pages/landing.css"
+import Solutions from "../components/Solutions";
+import News from "../components/News";
 
 const Landing = () => {
     return (
@@ -14,20 +16,31 @@ const Landing = () => {
                 <img/>
             </aside>
         </main>
-        <aside className="d-f-even">
-            <article className="d-f-even-col">
-                <h5>Core to Cosmos</h5>
-                <p>Create eco-friendly solutions with a consience</p>
+        <aside className="blurb">
+            <article className="d-f-between">
+                <aside>
+                    <h5>Core to Cosmos</h5>
+                    <p>Create eco-friendly solutions with a consience</p>
+                </aside>
+                <div className="mini-img"></div>
             </article>
-            <article>
-                <h5>Data to Discovery</h5>
-                <p>Monitor, analyze,and safeguard our planet</p>
+            <article className="d-f-between">
+                <aside>
+                    <h5>Data to Discovery</h5>
+                    <p>Monitor, analyze,and safeguard our planet</p>
+                </aside>
+                <div className="mini-img"></div>
             </article>
-            <article>
-                <h5>Power to Precision</h5>
-                <p>Empower businesses to achieve efficiency without compromise.</p>
+            <article className="d-f-between">
+                <aside>
+                    <h5>Power to Precision</h5>
+                    <p>Empower businesses to achieve efficiency without compromise.</p>
+                </aside>
+                <div className="mini-img"></div>
             </article>
         </aside>
-        </section>)
-}
+        <Solutions/>
+        <News/>
+        </section>
+)}
 export default Landing;

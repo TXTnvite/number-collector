@@ -12,10 +12,10 @@ const Navbar = () =>{
             </Link>
         </section>
         <ul className='d-f-even'>
-            <li>About</li>
-            <l1>Solutions</l1>
-            <li>News</li>
-            <li>Questions</li>
+            <li><a href='/about'>About</a></li>
+            <l1><a>Solutuions</a></l1>
+            <li><a>News</a></li>
+            <li><a href='/questions'>Questions</a></li>
         </ul>
         <Link to='/auth'><button>Login/Signup</button></Link>
     </header>

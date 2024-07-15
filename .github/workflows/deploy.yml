@@ -28,6 +28,9 @@ jobs:
           docker build -t ghcr.io/${{ secrets.GHCR_USERNAME }}/number-collector:latest .
           docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/number-collector:latest
 
+      - name: Login to GitHub Container Registry for SSH Deploy
+        run: echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
       - name: SSH Deploy
         uses: appleboy/ssh-action@v0.1.5
         with:

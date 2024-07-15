@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_SSH_PORT }}
-          passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
+          passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}
           script: |
             docker pull ghcr.io/${{ secrets.GHCR_USERNAME }}/number-collector:latest
             docker stop number-collector || true

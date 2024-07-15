@@ -37,7 +37,7 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           passphrase: ${{ secrets.SSH_PRIVATE_KEY_PASSPHRASE }}
           script: |
-            docker pull ghcr.io/${{ secrets.GHCR_USERNAME }}/my-react-app:latest
-            docker stop my-react-app || true
-            docker rm my-react-app || true
-            docker run -d -p 80:80 --name my-react-app ghcr.io/${{ secrets.GHCR_USERNAME }}/my-react-app:latest
+            docker pull ghcr.io/${{ secrets.GHCR_USERNAME }}/number-collector:latest
+            docker stop number-collector || true
+            docker rm number-collector || true
+            docker run -d -p 80:80 --name number-collector ghcr.io/${{ secrets.GHCR_USERNAME }}/number-collector:latest

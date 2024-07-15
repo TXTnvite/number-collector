@@ -8,10 +8,10 @@ RUN npm install
 # copy source code 
 COPY . .
 
-#Build React app
+#Stage 1: Build React app
 RUN npm run build
 
-# Use Nginx as a web server to serve teh React App
+# Stage 2: Serve teh React App with Nginx
 FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80

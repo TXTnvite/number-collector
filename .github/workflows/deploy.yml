@@ -20,7 +20,7 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          username: txtnvite
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
@@ -28,7 +28,7 @@ jobs:
           docker build -t ghcr.io/txtnvite/number-collector:latest .
           docker push ghcr.io/txtnvite/number-collector:latest
 
-      - name: SSH Deploy
+      - name: SSH Deploy to Vultr Server
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -37,7 +37,8 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}
           script: |
-            docker pull ghcr.io/${{ github.repository_owner }}/number-collector:latest
+            docker login ghcr.io -u txtnvite -p ${{ secrets.GITHUB_TOKEN }}
+            docker pull ghcr.io/txtnvite/number-collector:latest
             docker stop number-collector || true
             docker rm number-collector || true
-            docker run -d -p 80:80 --name number-collector ghcr.io/${{ github.repository_owner }}/number-collector:latest
+            docker run -d -p 80:80 --name number-collector ghcr.io/txtnvite/number-collector:latest

@@ -5,7 +5,7 @@ import "../assets/CSS/pages/authentication.css";
 const Authentication = () => {
   return (
     <>
-      <section className="auth-container d-f-between">
+      <section className="auth-container">
         <AuthForm />
       </section>
     </>

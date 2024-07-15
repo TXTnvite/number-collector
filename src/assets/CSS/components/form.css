@@ -1,27 +1,28 @@
-.form-container {
-    width: 100vw;
-}
-.form-container .first-step-container{
+
+.form-container .step-container{
     display:flex;
     align-items: center;
 }
-.form-container .second-step-container {
-   padding-top:5%;
-}
-.form-container .second-step-container h1{
-    margin-bottom: 13%;
-    padding: 0 35%;
- }
-.form-container .text-container{
-    text-align: center;
-    width: 50%;
-}
-.form-container h1{
-    font-size: 2rem;
+.form-container header {
+    height: 100vh;
     color: var(--light-primary);
-    padding: 0 26%;
+    margin-bottom: 3%;
+}
+.form-container header h1{
+    font-size: 5rem;
     text-wrap: wrap;
 }
+.form-container header h6 {
+    font-size: 2rem;
+    color: var(--secondary-font);
+    margin:8% 0;
+    padding: 0 26%;
+}
+.form-container .text-container{
+    margin-top: 10%;
+    height:100vh;
+}
+
 .form-container .text-container h6 {
     color:var(--quaterly-font);
     margin:8% 0;
@@ -31,7 +32,6 @@
     display:flex;
     flex-direction: column;
     align-items: start;
-    padding-left:27%;
 }
 .form-container section label {
     margin-bottom: 3%;
@@ -39,7 +39,12 @@
     color:var(--quaterly-font);
 }
 .form-container section input {
+    width: 50vw;
+    border: 0;
     padding: 4.5% 26% 4.5% 4.5% ;
+    background-color: transparent;
+    border-bottom: 2px solid black;
+    outline: 0;
 }
 /* radio buttons */
 .form-container .radio-container {

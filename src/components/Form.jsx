@@ -6,6 +6,7 @@ import gmailIcon from "../assets/Images/gmail_new_logo_icon_159149.png";
 import outlookIcon from "../assets/Images/microsoft_outlook_alt_macos_bigsur_icon_189970.png";
 import webIcon from "../assets/Images/emblemweb_93503.png";
 import PhoneExample from "./PhoneExample";
+import { Link } from "react-router-dom";
 function AuthForm() {
   const [currentStep, setCurrentStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -59,11 +60,9 @@ function AuthForm() {
       case 1:
         return (
           <>
-            <div className="first-step-container">
-              <PhoneExample />
+            <div className="step-container d-f-center-col">
+              
               <div className="text-container">
-                <h1>Schedule With Our App</h1>
-                <h6>Quick, Fast, & Easy through Text</h6>
                 <section className="input-container">
                   <label htmlFor="phone-number">2FA Authentication</label>
                   <div className="d-f-between">
@@ -91,9 +90,9 @@ function AuthForm() {
         );
       case 2:
         return (
-          <div className="second-step-container d-f-center-col">
-            <h1>TXT'nvite</h1>
-            <section>
+          <div className="step-container d-f-center-col">
+            <section className="text-container">
+            <section className="input-container">
               <label htmlFor="verification-code">
                 Please Enter The Verification Code
               </label>
@@ -115,14 +114,15 @@ function AuthForm() {
                   <IoIosArrowForward />
                 </button>
               </div>
+                </section>
             </section>
           </div>
         );
       case 3:
         return (
-          <div className="second-step-container d-f-center-col">
-            <h1>TXT'nvite</h1>
-            <section>
+          <div className="step-container d-f-center-col">
+            <section className="text-container">
+            <section className="input-container">
               <label htmlFor="full-name">What Should We Call You?</label>
               <div className="d-f-between">
                 <input
@@ -143,14 +143,14 @@ function AuthForm() {
                 </button>
               </div>
             </section>
+            </section>
           </div>
-        );
+        );w
       case 4:
         return (
-          <div className="second-step-container d-f-center-col">
-            <h1>TXT'nvite</h1>
-
-            <section className="d-f-center-col">
+          <div className="step-container d-f-center-col">
+            <section className="text-container">
+            <section className="input-container">
               <label htmlFor="calendar">Set Your Preffered Calender</label>
               <div className="radio-container">
                 <label htmlFor="iCal" className="radio-label">
@@ -207,6 +207,7 @@ function AuthForm() {
                 <IoIosArrowForward />
               </button>
             </section>
+            </section>
           </div>
         );
       default:
@@ -216,6 +217,12 @@ function AuthForm() {
 
   return (
     <form className="form-container">
+      <PhoneExample />
+      <header className="d-f-center-col">
+        <h1>Schedule With Our App</h1>
+        <h6>Quick, Fast, & Easy through Text</h6>
+        <button>Sign In/Sign In</button>
+        </header>
       <section>{renderStep()}</section>
     </form>
   );

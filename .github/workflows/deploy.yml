@@ -41,4 +41,4 @@ jobs:
             docker pull ghcr.io/txtnvite/number-collector:latest
             docker stop number-collector || true
             docker rm number-collector || true
-            docker run -d -p 80:80 --name number-collector ghcr.io/txtnvite/number-collector:latest
+            docker run -d -p 8080:80 --name number-collector ghcr.io/txtnvite/number-collector:latest

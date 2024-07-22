@@ -1,4 +1,4 @@
-name: Deploy to Vultr
+name: Deploy React App
 
 on:
   push:
@@ -6,29 +6,46 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+      - name: Copy files via SSH
+        uses: appleboy/scp-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}
+          target: /home/brooke/txtnvite/
+          source: ./
 
-    - name: Build Docker image
-      run: |
-        docker build -t react-app:latest .
+      - name: Install Docker Compose
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}
+          script: |
+            sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+            sudo chmod +x /usr/local/bin/docker-compose
 
-    - name: SSH into Vultr and deploy
-      uses: appleboy/ssh-action@v0.1.6
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}
-        script: |
-          cd /path/to/your/project
-          git pull
-          docker-compose down
-          docker-compose up -d --build
+      - name: Run deployment commands on remote server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          passphrase: ${{ secrets.SERVER_SSH_KEY_PASSPHRASE }}\
+          script: |
+            cd /home/brooke/txtnvite
+            if [ ! -d ".git" ]; then
+              git clone git@github.com:TXTnvite/number-collector.git .
+            fi
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build

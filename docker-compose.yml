@@ -9,7 +9,7 @@ services:
       - nginx
 
   nginx:
-    image: nginx:ubuntu
+    image: nginx:alpine
     ports:
       - "8081:80"    # Expose port 80 in the container as port 80 on the host
     volumes:
